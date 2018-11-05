@@ -44,9 +44,7 @@ export class CodeValidator {
 
 ## example
 
-[stackblitz](https://stackblitz.com/edit/code-validator)
+[stackblitz demo](https://stackblitz.com/edit/code-validator)
 
-![img1]('./doc/code.png)
-![img2]('./doc/code1.png)
-
-<iframe src="https://stackblitz.com/edit/code-validator" frameborder="0"></iframe>
+![img1](./doc/code.png)
+![img2](./doc/code1.png)
