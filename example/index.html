@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    img{
+      border: 1px saddlebrown solid
+    }
+  </style>
+</head>
+
+<body>
+  <img>
+  <h3></h3>
+  <script type="module" src="./main.js"></script>
+  <script type="module">
+    import { CodeValidator } from "./main.js";
+    const cv = new CodeValidator()
+    const res = cv.random()
+    const img = document.querySelector('img')
+    const h3 = document.querySelector('h3')
+    img.src = res.base
+    h3.innerHTML=res.value
+  </script>
+</body>
+
+</html>
