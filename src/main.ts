@@ -33,7 +33,7 @@ export class CodeValidator implements CodeValidatorInterface {
 
     this.ctx.textBaseline = "top";
     for (let i = 0; i < this.length; i++) {
-      const c =  this.randomString(); // 一个随机字符
+      const c = this.randomString(); // 一个随机字符
       this.value = `${this.value}${c}`;
       const fs = this.randomNumber(16, this.height); // 字体大小
       this.ctx.font = fs + "px  SimHei";
@@ -44,7 +44,7 @@ export class CodeValidator implements CodeValidatorInterface {
       const y = -fs / 2;
       // 绘制一个字符: 保存状态->平移->旋转->绘制->恢复状态
       this.ctx.save();
-      this.ctx.translate((this.width / this.length) * i + 15, 15);
+      this.ctx.translate((this.width / this.length) * i + 15, this.height / 2);
       this.ctx.rotate((deg * Math.PI) / 180);
       this.ctx.strokeText(c, x, y);
       this.ctx.restore();
