@@ -30,7 +30,7 @@ var CodeValidator = /** @class */ (function () {
             var y = -fs / 2;
             // 绘制一个字符: 保存状态->平移->旋转->绘制->恢复状态
             this.ctx.save();
-            this.ctx.translate((this.width / this.length) * i + 15, this.height / 2);
+            this.ctx.translate((this.width / this.length) * (i + 0.5), this.height / 2);
             this.ctx.rotate((deg * Math.PI) / 180);
             this.ctx.strokeText(c, x, y);
             this.ctx.restore();
