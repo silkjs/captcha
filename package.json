@@ -1,9 +1,9 @@
 {
   "name": "code-validator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
-  "main": "index.js",
-  "typings":"typings/index.d.ts",
+  "main": "build/main.js",
+  "typings": "typings/index.d.ts",
   "scripts": {
     "build": "npx tsc"
   },
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/myour-cc/code-validator.git"
   },
-  "keywords": [],
+  "keywords": ["code-validator", "验证码"],
   "author": "",
   "license": "ISC",
   "bugs": {
