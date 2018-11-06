@@ -2,13 +2,20 @@
 
 前端验证码生产器
 
-## 引用
+## install
+
+```bash
+yarn add code-validator
+# OR  npm install code-validator --save
+```
+
+## import
 
 ```js
 import { CodeValidator } from "code-validator";
 ```
 
-## 生成随机验证码
+## guide
 
 ```js
 const cv = new CodeValidator();
@@ -16,9 +23,46 @@ const cv = new CodeValidator();
 const res = cv.random();
 ```
 
-## 说明
+### in angular
 
-interface
+```ts
+import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+
+import { CodeValidator } from 'code-validator'
+
+@Component({
+  selector: 'my-app',
+  template: `
+  <img [src]="base64" (click)="random()"/>
+  <h3>{{value}}</h3>
+  `
+})
+export class AppComponent implements OnInit {
+  base64: SafeUrl
+  value: string
+  cv = new CodeValidator({
+    width:160,
+    height:50,
+    length:5
+  })
+
+  constructor(private sanitizer: DomSanitizer) { }
+
+  ngOnInit() {
+    this.random()
+  }
+  random() {
+    let res = this.cv.random()
+    this.base64 = this.sanitizer.bypassSecurityTrustUrl(res.base)
+    this.value = res.value
+  }
+}
+```
+
+## more
+
+> interface
 
 ```ts
 export class CodeValidator {
@@ -27,7 +71,7 @@ export class CodeValidator {
 }
 ```
 
-> 初始化参数 options
+> constructor options
 
 | 参数   | 默认值 | 说明       |
 | :----- | :----- | :--------- |
@@ -35,7 +79,7 @@ export class CodeValidator {
 | height | 30     | 图片高度   |
 | length | 4      | 验证码长度 |
 
-> 返回值
+> random return
 
 | 参数  | 说明                     |
 | :---- | :----------------------- |
@@ -44,7 +88,6 @@ export class CodeValidator {
 
 ## example
 
-[stackblitz demo](https://stackblitz.com/edit/code-validator)
+[![img1](./doc/code.png)](https://stackblitz.com/edit/code-validator)
+[![img2](./doc/code1.png)](https://stackblitz.com/edit/code-validator)
 
-![img1](./doc/code.png)
-![img2](./doc/code1.png)
